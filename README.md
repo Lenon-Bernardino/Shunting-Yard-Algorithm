@@ -7,4 +7,4 @@ It parses that expression into reverse polish "4,18,9,3,−,/,+.".
 
 Which is then evaluated in the following way:
 
-![Alt text](![image]([https://i.imgur.com/yE9sSM9.jpg "title")
+![evaluation](https://i.imgur.com/yE9sSM9.jpg "evaluation")
