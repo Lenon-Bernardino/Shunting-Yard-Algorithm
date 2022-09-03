@@ -89,7 +89,6 @@ bool checkoperator(char check_str)
 
 bool operator_with_greater_precedence(vector<char> operator_stack, char current_operator)
 {
-    cout << "\nh1";
     char stack_top;
     if(operator_stack.size() > 0)
     {
@@ -99,13 +98,10 @@ bool operator_with_greater_precedence(vector<char> operator_stack, char current_
     {
         return false;
     }
-    cout << "\nh2";
     if(current_operator == '+' || current_operator == '-')
     {
-        cout << "\nh3";
         if(stack_top == '/' || stack_top == '*')
         {
-            cout << "\nh4";
             return true;
         }
     }
@@ -176,11 +172,6 @@ int main()
         }
 
         token_type = checktype(input[i]);
-        cout << "\nOperator stack: " << display_vector(operator_stack);
-        cout << "\nOutput queue: " << display_str_vector(output_queue);
-        cout << "\nToken type: " << token_type;
-        cout << "\ninput: " << input[i];
-        cout << "\n==================================================================";
         switch (token_type)
         {
             case number:
@@ -216,9 +207,6 @@ int main()
         output_queue.push_back(buffer_for_stuff);
         operator_stack.pop_back();
     }
-    cout << "\nOperator stack: " << display_vector(operator_stack);
-    cout << "\nOutput queue: " << display_str_vector(output_queue);
-    cout << "\nToken type: " << token_type;
 
     vector<string> operators = {};
     vector<string> two_numbers = {};
@@ -230,14 +218,6 @@ int main()
     for(int i = output_queue.size()-1; i <= output_queue.size()-1; i--)
     {
         current_str = output_queue.at(i);
-        cout << "\nOperators: " << display_str_vector(operators);
-        cout << "\nOutput queue: " << display_str_vector(output_queue);
-        cout << "\nToken type: " << token_type;
-        cout << "\nCurrent token: " << current_str;
-        cout << "\nTwo numbers: " << display_str_vector(two_numbers);
-        cout << "\ni = " << i;
-        cout << "\n==================================================================";
-        cout << "\nhere 1";
         if(current_str.length() > 1)
         {
             token_type = 'n';
@@ -246,26 +226,20 @@ int main()
         {
             token_type = checktype_str(current_str);
         }
-        cout << "\nhere 2";
         if(token_type == 'o')
         {
-            cout << "\nhere 3";
             operators.push_back(current_str);
             output_queue.pop_back();
         }
         else
         {
-            cout << "\nhere 4";
             two_numbers.push_back(current_str);
-            cout << "\nhere 5";
         }
 
         if(two_numbers.size() == 2)
         {
             first = std::stod(two_numbers.back()); // (9)
             second = std::stod(two_numbers.front()); // (3)
-            cout << "\nfirst: " << first;
-            cout << "\nsecond: " << second;
             current_operator = operators.back();
             if(current_operator == "+")
             {
@@ -313,12 +287,6 @@ int main()
             }
         }
     }
-    cout << "\nOperators: " << display_str_vector(operators);
-    cout << "\nOutput queue: " << display_str_vector(output_queue);
-    cout << "\nToken type: " << token_type;
-    cout << "\nCurrent token: " << current_str;
-    cout << "\nTwo numbers: " << display_str_vector(two_numbers);
-    cout << "\n==================================================================";
 
     string final_result = output_queue.back();
     cout << "\n\nFINAL RESULT: " << final_result;
