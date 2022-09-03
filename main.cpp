@@ -223,9 +223,9 @@ int main()
     vector<string> operators = {};
     vector<string> two_numbers = {};
     string current_str;
-    int first;
-    int second;
-    int result;
+    double first;
+    double second;
+    double result;
     string current_operator;
     for(int i = output_queue.size()-1; i <= output_queue.size()-1; i--)
     {
@@ -262,8 +262,8 @@ int main()
 
         if(two_numbers.size() == 2)
         {
-            first = stoi(two_numbers.back()); // (9)
-            second = stoi(two_numbers.front()); // (3)
+            first = std::stod(two_numbers.back()); // (9)
+            second = std::stod(two_numbers.front()); // (3)
             cout << "\nfirst: " << first;
             cout << "\nsecond: " << second;
             current_operator = operators.back();
